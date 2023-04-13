@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum 5 - Javascript Lanjutan</title>
+</head>
+<body>
+    1. Event Pertama <br>
+    <a onclick="eventPertama('Mario')" href="#">Klik Disini</a>
+    <br>
+    2. Event kedua 
+    <br>
+    Username : <input id="username" type="text"><br>
+    Password : <input id="password" type="password"><br>
+    <a onclick="eventKedua()" href="#">Login</a>
+    <br>
+    3. Event Tiga
+    <br>
+    <img width="250px" src="img/gambar1.jpg" alt="" onmouseout="eventKeempat(this)" onmouseover="eventKetiga(this)">
+    <br>
+    <h2>4. Operator</h2>
+    <br>
+    <input type="text" name="" oninput="cekNilai()" id="nilai">
+    <br>
+    <label id="note"> Lulus</label>
+    <br>
+    <h2>5. Perulangan</h2>
+    <br>
+    <div id="canvas">
+
+    </div>
+
+    <script>
+        //1. Membuat fungsi  event pertama onClik
+        function eventPertama(nama){
+            alert('Hello '+nama);
+        }
+        //2. Membuat fungsi ke dua
+        function eventKedua() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            if (username == 'mario' && password=='1234') {
+                alert('Login Berhasil');
+            } else {
+                alert('Login Salah');
+            }
+
+        }
+        //3. Membuat Fungsi ganti gambar 1
+        function eventKetiga(img){
+            img.src = 'img/gambar2.jpg';
+        }
+        //4. Membuat Fungsi ganti gambar 2
+        function eventKeempat(img){
+            img.src = 'img/gambar1.jpg';
+        }
+        //5. Operator
+        function cekNilai() {
+            let nilai =  document.getElementById('nilai').value;
+            let note = document.getElementById("note");
+            
+            note.style.fontSize = "x-large"
+
+            if(nilai >= 50){
+                note.innerHTML = nilai+' = Lulus';
+                note.style.color = 'green';
+        
+            }else{
+                note.innerHTML = nilai+' =  Tidak Lulus';
+                note.style.color = 'red';
+            }
+            
+        }
+        //6. Perulangan atau Loop
+        const mobil = ['Toyota', 'Daihatsu','Honda'];
+        let text = "";
+        //jalankan perluangan
+        for (let index = 0; index < mobil.length; index++) {
+            text += "- "+mobil[index]+" <br>";
+        }
+
+        document.getElementById("canvas").innerHTML = text;
+   </script>
+</body>
+</html>
